@@ -72,9 +72,6 @@ function getDirections(lat, lon, callback) {
 	lat + ',' + lon,//origin
 	'37.866441,-122.265410',//destination
         callback,
-	// function(err, data){ 	//callback
-	//     return parseResponse(data);
-	// },						
 	null,					//sensor
 	'walking',				//mode
 	null,					//waypoints
