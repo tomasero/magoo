@@ -10,7 +10,16 @@ var es = new EventSource(url);
 
 es.addEventListener('GPS', function(e) {
     var data = JSON.parse(e.data);
-    console.log(data['data']);
+    //console.log(data['data']);
+    var gps = JSON.parse(data['data']);
+    
+    var lat = parseLatitude(gps['lat']);    
+    var lon = parseLongitude(gps['lon']);
+
+    console.log('lat: ' + lat + ', lon: ' + lon);
+    getDirections(lat, lon, function(err, data) {
+        console.log(parseResponse(data));
+    });
 });
 
 // es.addEventListener('GPS_RAW', function(e) {
@@ -47,7 +56,6 @@ function parseLatitude(lon) {
 }
 
 var apiKey = 'AIzaSyDFyqGWRCugmoTLX7IaK2up2wR6KjJ37iE';
-
 var gm = require('googlemaps');
 
 gm.config('key', apiKey);
@@ -55,25 +63,27 @@ gm.config('key', apiKey);
 function parseResponse(data) {
     legs = data['routes'][0]['legs'][0];
     steps = legs['steps'];
-    console.log(steps);
+    //console.log(steps);
+    return steps;
 }
 
+function getDirections(lat, lon, callback) {
+    
+    gm.directions(
+	lat + ',' + lon,//origin
+	'37.866441,-122.265410',//destination
+        callback,
+	// function(err, data){ 	//callback
+	//     return parseResponse(data);
+	// },						
+	null,					//sensor
+	'walking',				//mode
+	null,					//waypoints
+	false,					//alternatives
+	null,					//avoid
+	'metric'				//units
+	//language
+	//departure
+    );
 
-
-// gm.directions(
-//     '37.877775,-122.261657',//origin
-//     '37.866441,-122.265410',//destination
-//     function(err, data){ 	//callback
-// 	parseResponse(data);
-//     },						
-//     null,					//sensor
-//     'walking',				//mode
-//     null,					//waypoints
-//     false,					//alternatives
-//     null,					//avoid
-//     'metric'				//units
-//     //language
-//     //departure
-// );
-
-console.log('started!');
+}
