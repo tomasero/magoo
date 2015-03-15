@@ -26,7 +26,6 @@ function convertDegMinToDecDeg (degMin) {
     var min = degMin % 100;
     // get degrees
     var deg = Math.floor(degMin / 100);
-        
     return deg + (min / 60.0);
 }
 

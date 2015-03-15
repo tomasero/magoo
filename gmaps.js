@@ -12,7 +12,7 @@ function parseResponse(data) {
 function getDirections(lat, lon) {
 
 	gm.directions(
-	lat + ',' lon,//origin
+	lat + ',' + lon,//origin
 	'37.866441,-122.265410',//destination
 	function(err, data){ 	//callback
 		return parseResponse(data);
