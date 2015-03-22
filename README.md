@@ -1,5 +1,5 @@
 #Magoo
-###Navigation + Obstacle Detection for the visually impaired
+####Navigation + Obstacle Detection for the visually impaired
 
 ##Modules
 ###Navigation
