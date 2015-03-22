@@ -27,7 +27,7 @@
 	- Arduino Mini
 	- Parallax PING))) Ultrasonic Distance Sensor
 	- Coin Vibration Motor
-Adafruit 
+ 
 ###Dependencies
 - Adafruit GPS library
 - Adafruit LSM303 library
