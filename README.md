@@ -18,7 +18,16 @@
 	- Coin Vibration Motor
 
 ###Obstacle Detection
-
+- Software
+	- Arduino Mini
+		- Follow tutorial to upload to Arduino Mini
+			- http://www.instructables.com/id/Uploading-sketch-to-Arduino-Pro-Mini-using-Arduino/
+		- Flash obstacle_avoidance.ino	
+- Hardware
+	- Arduino Mini
+	- Parallax PING))) Ultrasonic Distance Sensor
+	- Coin Vibration Motor
+Adafruit 
 ###Dependencies
 - Adafruit GPS library
 - Adafruit LSM303 library
